@@ -1,0 +1,17 @@
+{
+    "name": "razor/rest",
+    "authors": [
+        {
+            "name": "Farid Mahmudov",
+            "email": "Razormad666@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Classes\\": "functions/Classes",
+            "Traits\\":  "app/Traits"
+        }
+    },
+    "require": {}
+}
