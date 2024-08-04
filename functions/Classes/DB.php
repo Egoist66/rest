@@ -35,7 +35,7 @@ class DB
                 $db_config['db'][$driver]['options']
             );
 
-            echo "<script>console.log('DB Connected!')</script>";
+            // echo "<script>console.log('DB Connected!')</script>";
         } catch (PDOException $e) {
             echo "DB Error: {$e->getMessage()}";
             die;

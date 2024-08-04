@@ -20,13 +20,35 @@ class Posts extends BaseModel
 
     /**
      * @return array<Posts>
-     *  Get all posts
+     *  Gets all posts
      */
     final public function read(): array
     {
-        return self::db()->custom_query('SELECT * FROM posts')->findAll();
+        $query = "SELECT
+            c.name as category_name,
+            p.id,
+            p.category_id,
+            p.title,
+            p.body,
+            p.author,
+            p.created_at,
+            p.updated_at
+            FROM {$this->table}
+            LEFT JOIN categories c ON p.category_id = c.id
+            ORDER BY p.created_at DESC
+        ";
+        $stmt = self::db()->connection->prepare($query);
+
+        return $stmt->fetchAll();
+        
+            
     }
 
+    /**
+     * Create a new record.
+     *
+     * @return bool Returns true if the record was successfully created, false otherwise.
+     */
     final public function create(): bool
     {
         // TODO: Implement create() method.

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "toJson" => require_once __DIR__ . '/utils/toJson.php',
     "is_empty_data" => require_once __DIR__ . '/utils/is_empty_data.php',
     "old" => require_once __DIR__ . '/utils/old.php',
     "csrf" => require_once __DIR__ . '/utils/csrf.php',

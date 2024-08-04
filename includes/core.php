@@ -1,13 +1,11 @@
 <?php
 
-define('APP_NAME', 'RestAPI');
-define("DS", defined('DS') ? DS : DIRECTORY_SEPARATOR);
-define('APP_ROOT', defined('APP_ROOT') ? APP_ROOT : DS . 'xampp' . DS . 'htdocs' . DS . 'rest');
-define('INC_PATH', defined('INC_PATH') ? INC_PATH : APP_ROOT.DS.'includes');
-define('CORE_PATH', defined('CORE_PATH') ? INC_PATH : APP_ROOT.DS.'core');
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 
-foreach (require'./modules.php' as $module) {
+
+foreach (require'../includes/modules.php' as $module) {
     if (file_exists($module)) {
         require_once $module;
     }
@@ -15,5 +13,4 @@ foreach (require'./modules.php' as $module) {
 
 
 
-$posts = new \App\Models\Posts();
-print_r($posts->read());
+
